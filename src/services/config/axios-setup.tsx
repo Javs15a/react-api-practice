@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 
 const DEV_URL = 'http://localhost:3001/api';
+const BASE_URL = 'https://react-robouser.herokuapp.com/api';
 
 export const AXIOS_SERVICE: AxiosInstance = axios.create({
     responseType: 'json'
@@ -8,7 +9,7 @@ export const AXIOS_SERVICE: AxiosInstance = axios.create({
 
 AXIOS_SERVICE.interceptors.request.use(
     async (config) => {
-        config.baseURL = DEV_URL;
+        config.baseURL = BASE_URL;
         config.headers = {
             'Accept': 'application/json',
             'Content-type': 'application/json',
