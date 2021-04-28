@@ -15,7 +15,7 @@ type Props = {
 export const UserForm = (props: Props) => {
     const { action: title } = props;
     const [showSpinner, setShowSpinner] = React.useState<boolean>(false);
-    const { user } = useContext(UserContext)
+    const { user } = useContext(UserContext);
 
     const submitHandler = (values: User) => {
         setShowSpinner(true);

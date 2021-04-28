@@ -19,7 +19,8 @@ const FormControl = withFormik<Props, User>({
             last_name: props.user?.last_name || '',
             email: props.user?.email || '',
             phone: props.user?.phone || '',
-            user_name: props.user?.user_name || ''
+            user_name: props.user?.user_name || '',
+            img: props.user?.img || undefined
         }
     },
     validateOnChange: true,

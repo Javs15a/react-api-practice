@@ -23,7 +23,10 @@ export const InnerForm = (props: Props & FormikProps<User>) => {
                 <Grid container spacing={2} alignContent="center" justify="center">
                     <Grid item>
                         {/* imagen */}
-                        <Avatar alt="Robo user" src={`https://robohash.org/0${values.first_name}.png?size=200x200&set=set1`} className={classes.large} />
+                        <Avatar
+                            alt="Robo user"
+                            src={values.img || `https://robohash.org/0${values.first_name}.png?size=200x200&set=set1`}
+                            className={classes.large} />
                     </Grid>
                     <Grid item xs={12} sm container direction="column" spacing={2}>
 
