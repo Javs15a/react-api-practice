@@ -1,5 +1,6 @@
 import { User } from "modules/users/UserValues";
 import { AXIOS_SERVICE } from "services/config/axios-setup";
+import { MENSAJE } from "./prueba";
 
 const axiosInstance = AXIOS_SERVICE;
 
@@ -22,6 +23,7 @@ export const updateUser = (user: User, id: string) => {
 }
 
 export const deleteUser = (id: string) => {
+    console.log(MENSAJE);
     return axiosInstance.delete(`/usuarios/${id}`)
         .then(resp => resp)
         .catch(err => err);
