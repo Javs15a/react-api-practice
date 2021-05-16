@@ -1,24 +1,28 @@
 import React, { useEffect } from 'react';
 import clsx from 'clsx';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import {
+  CssBaseline,
+  Drawer,
+  AppBar,
+  Toolbar,
+  List,
+  Typography,
+  Divider,
+  IconButton,
+  ListItem,
+  ListItemIcon,
+  ListItemText
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { mainListItems } from './ListItems';
+import { sideBarItems } from './ListItems';
 import { useStyles } from '../assets/theme/dashboard/styles';
+import { useHistory } from 'react-router-dom';
 
 
 export default function Dashboard() {
   const classes = useStyles();
+  let history = useHistory();
 
   const [open, setOpen] = React.useState(true);
 
@@ -28,10 +32,9 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    <div className={classes.root}>
+    <>
       <CssBaseline />
       <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
         <Toolbar className={classes.toolbar}>
@@ -45,7 +48,7 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            App API
+            AppStore mlts
           </Typography>
         </Toolbar>
       </AppBar>
@@ -63,21 +66,22 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        <List>
+          {sideBarItems.map((item) => {
+            const { title, icon, path } = item;
+            return (
+              <ListItem key={title} button onClick={() => history.push(path)}>
+                <ListItemIcon>
+                  {icon}
+                </ListItemIcon>
+                <ListItemText primary={title} />
+              </ListItem>
+            )
+          })
+          }
+        </List>
       </Drawer>
 
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                {/* Tabla */}
-              </Paper>
-            </Grid>
-          </Grid>
-        </Container>
-      </main>
-    </div>
+    </>
   );
 }

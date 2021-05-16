@@ -1,43 +1,35 @@
-import React from "react";
-import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import PersonIcon from '@material-ui/icons/Person';
+import React, { ReactComponentElement } from "react";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
+import StoreIcon from '@material-ui/icons/Store';
+import ReceiptIcon from '@material-ui/icons/Receipt';
 
-export const mainListItems = (
-    <div>
-        <ListItem button>
-            <ListItemIcon>
-                <PersonIcon />
-            </ListItemIcon>
-            <ListItemText primary="Personas" />
-        </ListItem>
-        {/* <ListItem button>
-            <ListItemIcon>
-                <ShoppingCartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Orders" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <PeopleIcon />
-            </ListItemIcon>
-            <ListItemText primary="Customers" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <BarChartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Reports" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <LayersIcon />
-            </ListItemIcon>
-            <ListItemText primary="Integrations" />
-        </ListItem> */}
-    </div>
-);
+interface sideBarItem {
+    title: string;
+    path: string;
+    icon: ReactComponentElement<any>;
+}
+
+export const sideBarItems: Array<sideBarItem> = [
+    {
+        title: "Compra - Venta",
+        path: "/",
+        icon: <StoreIcon />,
+    },
+    {
+        title: "Transacciones",
+        path: "/transacciones",
+        icon: <ReceiptIcon />,
+    },
+    {
+        title: "Personas",
+        path: "/personas",
+        icon: <PeopleIcon />,
+    },
+    {
+        title: "Productos",
+        path: "/productos",
+        icon: <ShoppingCartIcon />,
+    },
+];
 

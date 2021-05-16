@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 
-export const API_KEY = "TNZ7C3VdHoAtfaIm4nyGQQ";
+const HOST = '192.168.1.67';
 
 export const AXIOS_SERVICE: AxiosInstance =
     axios.create(
@@ -11,7 +11,7 @@ export const AXIOS_SERVICE: AxiosInstance =
 
 AXIOS_SERVICE.interceptors.request.use(
     async config => {
-        config.baseURL = 'https://app.fakejson.com/q';
+        config.baseURL = `http://${HOST}:4041/v1/mlts-store`;
         config.headers = {
             'Accept': ' application/json',
             'Content-type': 'application/json',

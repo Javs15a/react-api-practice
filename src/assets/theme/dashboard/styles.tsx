@@ -33,7 +33,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
         }),
     },
     menuButton: {
-        marginRight: 36,
+        marginRight: theme.spacing(2),
     },
     menuButtonHidden: {
         display: 'none',
@@ -76,8 +76,5 @@ export const useStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         overflow: 'auto',
         flexDirection: 'column',
-    },
-    fixedHeight: {
-        height: 240,
     },
 }));

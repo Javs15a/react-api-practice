@@ -2,9 +2,14 @@ import { createMuiTheme } from '@material-ui/core';
 
 const appTheme = createMuiTheme(
     {
-        spacing: 5,
         palette: {
             type: 'dark',
+            primary: {
+                main: '#ff9800',
+            },
+            secondary: {
+                main: '#009688',
+            },
         }
     }
 );
